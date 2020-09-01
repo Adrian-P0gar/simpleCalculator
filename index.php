@@ -36,41 +36,19 @@
         The url pattern is: localhost/simplecalculator/<strong>?first=3&second=2&operation=assembly</strong>  <br> If you don't like te URL calculator, just use the calculator on the page ";
 
          echo  '<p>
-                    <form action="index.php" method="post">
-                        <input type="text" name="firstInput"  maxlength="4" size="4">
-                        <select name="operationInput" id="operation">
+                    <form action="index.php" method="get">
+                        <input type="text" name="first"  maxlength="4" size="4">
+                        <select name="operation" id="operation">
                             <option value="assembly">+</option>
                             <option value="decrease">-</option>
                             <option value="multiplication">*</option>
                             <option value="division">/</option>
                         </select>
-                        <input type="text" name="secondInput"  maxlength="4" size="4">
+                        <input type="text" name="second"  maxlength="4" size="4">
                         <input type="submit" VALUE="Submit">
                     </form>
                 </p>  ';
-        if(isset($_POST['firstInput']) and isset($_POST['secondInput']) and isset($_POST['operationInput']) ) {
-            $first = $_POST['firstInput'];
-            $second = $_POST['secondInput'];
-            if(is_numeric($first) and is_numeric($second)){
-                switch ($_POST['operationInput']) {
-                    case "assembly":
-                        echo "Result: ". ($first + $second);
-                        break;
-                    case "decrease":
-                        echo "Result:". ($first - $second);
-                        break;
-                    case "multiplication":
-                        echo "Result:". ($first * $second);
-                        break;
-                    case "division":
-                        echo "Result:". ($first / $second);
-                        break;
-                    default:
-                        echo "The operation parameter must be: assembly, decrease, multiplication or division";
-                }
-            }
 
-        }
     }
 
 
